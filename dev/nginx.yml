@@ -13,7 +13,7 @@ spec:
           app: nginx
       spec:
         containers:
-        - image: nginx:stable
+        - image: nginx:stable-perl
           name: nginx
           imagePullPolicy: IfNotPresent
           ports:
