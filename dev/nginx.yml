@@ -8,9 +8,13 @@ spec:
         matchLabels:
             app: nginx
     template:
+      metadata:
+        labels:
+          app: nginx
+      spec:
         containers:
         - image: nginx:stable
           name: nginx
-          imagePullPolicy; IfNotPresent
+          imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 80
