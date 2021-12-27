@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: nginx
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: nginx
+    template:
+        containers:
+        - image: nginx:stable
+          name: nginx
+          imagePullPolicy; IfNotPresent
+          ports:
+          - containerPort: 80
