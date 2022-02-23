@@ -17,6 +17,5 @@ spec:
       containers:
       - name: alpine
         image: alpine
-        imagePullPolicy: IfNotPresent
         args: ["sleep", "10"]
         command: ["sh", "-c"]
