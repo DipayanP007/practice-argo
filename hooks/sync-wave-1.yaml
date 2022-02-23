@@ -28,9 +28,9 @@ spec:
           - name: traffic
             containerPort: 80
             protocol: TCP
-        volumeMounts:
-        - name: hostpath
-          mountPath: /bin
-      volumes:
-      - name: hostpath
-        emptyDir: {}
+      #   volumeMounts:
+      #   - name: hostpath
+      #     mountPath: /new
+      # volumes:
+      # - name: hostpath
+      #   emptyDir: {}
