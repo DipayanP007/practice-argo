@@ -15,6 +15,7 @@ spec:
     metadata:
       name: presync-wave3
     spec:
+      restartPolicy: "OnFailure"
       containers:
       - name: alpine
         image: alpine
