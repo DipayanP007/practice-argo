@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: preseync-wave1-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  completionMode: NonIndexed
+  completions: 1
+  parallelism: 1
+  template:
+    metadata:
+      name: presync-wave1
+    spec:
+      containers:
+      - name: alpine
+        image: alpine
+        command:
+          - "sh"
+          - "-c"
+        args:
+        - "sleep 10"
+        imagePullPolicy: IfNotPresent

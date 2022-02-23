@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx2
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  replicas: 4
+  minReadySeconds: 10
+  selector:
+    matchLabels:
+      app: nginx2
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx2
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "250Mi"
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: NAME
+          value: "anything"

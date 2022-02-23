@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: post-sync-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  activeDeadlineSeconds: 600
+  completionMode: NonIndexed
+  completions: 1
+  parallelism: 1
+  template:
+    metadata:
+      name: post-sync
+    spec:
+      containers:
+      - name: alpine
+        image: alpine
+        imagePullPolicy: IfNotPresent
+        args: ["sleep", "10"]
+        command: ["sh", "-c"]

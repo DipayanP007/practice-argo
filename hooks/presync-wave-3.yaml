@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: preseync-wave3-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  completionMode: NonIndexed
+  parallelism: 1
+  completions: 1
+  activeDeadlineSeconds: 600
+  template:
+    metadata:
+      name: presync-wave3
+    spec:
+      containers:
+      - name: alpine
+        image: alpine
+        imagePullPolicy: IfNotPresent
+        args: ["sleep 10"]
+        command: 
+        - "sh"
+        - "-c"
