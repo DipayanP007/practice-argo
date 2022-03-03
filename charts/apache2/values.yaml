@@ -29,3 +29,4 @@ service:
 ingress:
   host: apache-knolx.devopscloud.link
   port: 80
+  ingressClass: nginx
