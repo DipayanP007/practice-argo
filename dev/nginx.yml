@@ -13,7 +13,7 @@ spec:
           app: nginx
       spec:
         containers:
-        - image: httpd
+        - image: nginx
           name: nginx
           imagePullPolicy: IfNotPresent
           ports:
