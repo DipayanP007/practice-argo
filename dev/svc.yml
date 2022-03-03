@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: nginx-svc
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - name: traffic
       targetPort: 80
       port: 80
-      nodePort: 31000
   selector:
     app: nginx
